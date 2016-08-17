@@ -1,0 +1,387 @@
+/**
+ * 2016/08/16
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Helvitica Neue",Helvitica,Arial,
+               "Hiragino Sans GB","Microsoft YaHei",
+               "Arial Regular","Microsoft JhengHei",sans-serif;
+}
+body {
+  position: relative;
+}
+button,
+input {
+  display: inline-block;
+  /*float: left;*/
+  vertical-align: top;
+  border: none;
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+ul {
+  list-style: none;
+}
+
+
+/****** 顶部蓝色bar开始 ******/
+body > .top-bar {
+  width: 100%;
+  height: 60px;
+  background-color: rgb(5, 147, 211);
+}
+body > .body-container {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.top-bar img.logo {
+  float: left;
+  height: 42px;
+  width: 189px;
+  margin: 9px 20px;
+  padding-right: 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2);
+}
+.top-bar h1 {
+  float: left;
+  color: white;
+  line-height: 60px;
+  font-size: 26px;
+  font-weight: 500;
+}
+.top-bar .top-op {
+  float: right;
+  color: white;
+}
+.top-op .resource {
+  position: relative;
+  float: left;
+  margin: 9px 0;
+  padding: 0 15px;
+  cursor: pointer;
+}
+.top-op .resource:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2);
+}
+.top-op .resource:hover::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-color: white;
+  opacity: 0.5;
+  z-index: 100;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -ms-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+}
+.resource img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+}
+.resource span {
+  font-size: 12px;
+  transition: all .5s;
+}
+/****** 顶部蓝色bar结束 ******/
+
+
+/****** bar下主体区开始 ******/
+.body-container > div {
+  position: absolute;
+}
+
+/**** 三维地图区开始 ****/
+.body-container > .map3d {
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 50%;
+  z-index: 999;
+  transition: all .5s;
+}
+.body-container > .full-screen {
+  width: 100%;
+  height: 100%;
+}
+.map3d .bg-map {
+  width: 100%;
+  height: 100%;
+}
+.bg-map img {
+  width: 100%;
+  height: 100%;
+}
+
+/**** 三维地图区结束 ****/
+
+/**** 天气区开始 ****/
+.body-container > .weather {
+  top: 50%;
+  left: 0;
+  width: 40%;
+  height: 50%;
+}
+/**** 天气区结束 ****/
+
+/**** 二维地图区开始 ****/
+.body-container > .map2d {
+  top: 0;
+  left: 40%;
+  width: 60%;
+  height: 100%;
+}
+.map2d .bg-map {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 60px;
+  bottom: 0;
+}
+
+/* 地图右侧 bar 开始 */
+.map2d .right-bar {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 60px;
+  background-color: #eee;
+}
+/* 地图右侧 bar 结束 */
+
+/* 搜索开始 */
+.map2d .search {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  max-width: 320px;
+  z-index: 100;
+}
+.search .search-box {
+  position: relative;
+  left: 0;
+  transition: all .5s;
+}
+.unexpanded {
+  overflow: hidden;
+}
+.unexpanded .search-box {
+  left: -264px;
+}
+.search .search-box form {
+  float: left;
+  /*width:260px;
+  height: 30px;*/
+  background-color: white;
+  box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+  transition: all .5s;
+}
+.unexpanded .search-box form {
+  box-shadow: none;
+}
+.search-box input {
+  width: 220px;
+  height: 20px;
+  padding: 7px;
+  font-size: 14px;
+}
+.search-box button {
+  width: 20px;
+  height: 20px;
+  margin: 7px 5px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%;
+  background-color: #eee;
+  color: #aaa;
+  cursor: pointer;
+}
+.search-box .search-btn {
+  float: left;
+  height: 34px;
+  width: 50px;
+  box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+  background: url(../img/searchbtn_50.png) 0 -8px no-repeat #3385ff;
+  cursor: pointer;
+  transition: all .5s;
+}
+.search-box .search-btn:hover {
+  background-color: #2e77e5;
+}
+.unexpanded .search-box .search-btn {
+  height: 50px;
+  border-radius: 50%;
+  background: url(../img/searchbtn_50.png) no-repeat #3385ff;
+  transition: all .5s;
+}
+
+.search .search-result {
+  display: none;
+  float: left;
+  width: 244px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: white;
+  box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+}
+.search-result .result-list {
+  width: 100%;
+}
+.result-list .list-item {
+  padding: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+  transition: all .5s;
+}
+.result-list .list-item:hover,
+.selected-item {
+  background-color: #eee;
+}
+
+.list-item .marker {
+  display: inline-block;
+  width: 23px;
+  height: 34px;
+  background: url(../img/marker_red.png) no-repeat;
+  text-align: center;
+  transition: all .5s;
+}
+.list-item:hover .marker,
+.selected-item .marker {
+  background: url(../img/marker_blue.png) no-repeat;
+}
+.marker span {
+  position: relative;
+  top: 3px;
+  color: white;
+}
+.list-item .info {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 5px;
+}
+.info p {
+  transition: all .5s;
+}
+.list-item:hover .info p:first-child,
+.selected-item .info p:first-child {
+  color: #2b81ff;
+}
+.info p:not(:first-child) {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.search-result .result-tip {
+  padding-top: 10px;
+  margin: 5px 0;
+  font-size: 12px;
+}
+.total,
+.pagination {
+  display: inline-block;
+}
+.total span {
+  margin: 0 3px;
+  color: #f54336;
+}
+.pagination {
+  float: right;
+}
+.pagination span {
+  position: relative;
+  padding: 3px 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.pagination span:hover,
+.pagination .active {
+  color: white;
+  background-color: #2b81ff;
+  border-color: #2b81ff;
+}
+.pagination .pre,
+.pagination .next {
+  padding: 3px 7px 3px 6px;
+}
+.pagination .pre::before {
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-right-color: black;
+}
+.pagination .pre::after {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-right-color: white;
+}
+.pagination .pre:hover::before {
+  border-right-color: white;
+}
+.pagination .pre:hover::after {
+  border-right-color: #2b81ff;
+}
+.pagination .next::before {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-left-color: black;
+}
+.pagination .next::after {
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-left-color: white;
+}
+.pagination .next:hover::before {
+  border-left-color: white;
+}
+.pagination .next:hover::after {
+  border-left-color: #2b81ff;
+}
+/* 搜索结束 */
+
+/**** 二维地图区结束 ****/
+
+/****** bar下主体区结束 ******/
