@@ -3,7 +3,6 @@
  */
 
 $(document).ready(function() {
-  // alert($('.map3d').attr('data-full'));
 
   // 三维地图区全屏
   $('.map3d').click(function(event) {
@@ -41,11 +40,16 @@ $(document).ready(function() {
     $(this).addClass('selected-item').siblings().removeClass('selected-item');
   });
 
-  // 选中右侧工具栏的一项
-  $('.right-bar>div').click(function(event) {
+  // 选中右侧工具栏中的视频监控
+  $('.right-bar>.monitor').click(function(event) {
     $(this).addClass('selected-tool').siblings().removeClass('selected-tool');
-
     $('.map2d>.monitor-panel').animate({right: '70px'}, 500);
+  });
+
+  // 点击视频监控面板的退出按钮
+  $('.monitor-panel').on('click', '.exit', function(event) {
+    $('.right-bar>.monitor').removeClass('selected-tool');
+    $('.map2d>.monitor-panel').animate({right: '-200px'}, 500);
   });
 
 });

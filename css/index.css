@@ -178,24 +178,53 @@ body > .body-container {
   font-size: 12px;
   cursor: pointer;
   transition: all .5s;
-  /*color: #0593d3;*/
 }
 .right-bar > div:hover,
 .right-bar > .selected-tool {
   background-color: #ccc;
 }
 
+/* 视频监控面板开始  */
 .map2d > .monitor-panel {
   position: absolute;
   top: 0;
-  right: -240px;
-  width: 300px;
-  height: 400px;
+  right: -200px;
+  width: 260px;
+  /*height: 400px;*/
   margin-top: 120px;
   background-color: white;
   box-shadow: 1px 2px 1px rgba(0,0,0,.15);
   z-index: 99;
 }
+.monitor-panel .panel-title {
+  padding: 5px 10px 8px;
+  font-size: 16px;
+  color: white;
+  background-color: #3385FF;
+}
+.panel-title > .exit {
+  position: relative;
+  display: inline-block;
+  float: right;
+  padding: 3px 6px 3px 18px;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.8);;
+  text-align: right;
+  cursor: pointer;
+  transition: all .5s;
+}
+.panel-title > .exit::before {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  content: '×';
+  font-size: 20px;
+}
+.panel-title > .exit:hover {
+  background-color: white;
+  color: #3385FF;
+}
+/* 视频监控面板结束 */
 
 /* 地图右侧 bar 结束 */
 
