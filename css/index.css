@@ -167,8 +167,36 @@ body > .body-container {
   right: 0;
   height: 100%;
   width: 60px;
+  padding-top: 120px;
   background-color: #eee;
+  z-index: 100;
 }
+.right-bar > div {
+  position: relative;
+  padding: 5px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .5s;
+  /*color: #0593d3;*/
+}
+.right-bar > div:hover,
+.right-bar > .selected-tool {
+  background-color: #ccc;
+}
+
+.map2d > .monitor-panel {
+  position: absolute;
+  top: 0;
+  right: -240px;
+  width: 300px;
+  height: 400px;
+  margin-top: 120px;
+  background-color: white;
+  box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+  z-index: 99;
+}
+
 /* 地图右侧 bar 结束 */
 
 /* 搜索开始 */
@@ -192,8 +220,6 @@ body > .body-container {
 }
 .search .search-box form {
   float: left;
-  /*width:260px;
-  height: 30px;*/
   background-color: white;
   box-shadow: 1px 2px 1px rgba(0,0,0,.15);
   transition: all .5s;
